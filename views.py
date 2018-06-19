@@ -4,7 +4,7 @@ from django.views.decorators.csrf import csrf_exempt
 from datetime import datetime
 from classcast.classcast_test_submissions.models import Classcast_student_info
 from django.contrib.auth.models import User
-from common.djangoapps.student.models import UserProfile
+from student.models import UserProfile
 
 def hello(request):
    text = """<h1>welcome to my app !</h1>"""
@@ -36,7 +36,7 @@ def updateprofile(request):
 		
 		gender = request.POST.get('gender')
 	
-		
+
 
 		if Classcast_student_info.objects.filter(student_id=student_id).exists():
 			student_info = Classcast_student_info.objects.get(student_id=student_id)
