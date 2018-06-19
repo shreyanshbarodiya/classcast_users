@@ -27,11 +27,11 @@ def updateprofile(request):
 	first_name = request.POST.get('first_name')
 	last_name = request.POST.get('last_name')
 	
-	pincode = int(request.POST.get('pincode'))
-	standard = int(request.POST.get('standard'))
+	pincode = (request.POST.get('pincode'))
+	standard = (request.POST.get('standard'))
 	stream = request.POST.get('stream')
-	marks_scored_in_last_degree = float(request.POST.get('marks_scored_in_last_degree'))
-	DOB = float(request.POST.get('DOB'))
+	marks_scored_in_last_degree = (request.POST.get('marks_scored_in_last_degree'))
+	DOB = (request.POST.get('DOB'))
 	phone_number = request.POST.get('phone_number') 
 	
 	gender = request.POST.get('gender')
@@ -56,15 +56,15 @@ def updateprofile(request):
 	if (first_name is not None) and (last_name is not None):
 		user_profile.name = first_name + ' ' + last_name
 	if pincode is not None:
-		student_info.pincode = pincode
+		student_info.pincode = int(pincode)
 	if standard is not None:
-		student_info.standard = standard	
+		student_info.standard = int(standard)
 	if stream is not None:
 		student_info.stream = stream
 	if marks_scored_in_last_degree is not None:
-		student_info.marks_scored_in_last_degree = marks_scored_in_last_degree
+		student_info.marks_scored_in_last_degree = float(marks_scored_in_last_degree)
 	if DOB is not None:
-		student_info.DOB = DOB
+		student_info.DOB = float(DOB)
 	if phone_number is not None:
 		student_info.phone_number = phone_number
 	if gender is not None:
